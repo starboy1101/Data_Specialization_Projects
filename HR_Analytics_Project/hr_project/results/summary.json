@@ -1,0 +1,20 @@
+{
+  "employees": 1470,
+  "leavers": 237,
+  "attrition": 0.16122448979591836,
+  "leaver_age": 33.607594936708864,
+  "leaver_income": 4787.0928270042195,
+  "overtime": 416,
+  "tenure": 7.0081632653061225,
+  "chi2": 1.2752163602205182,
+  "p": 0.25879037049115644,
+  "df": 1,
+  "minimum_expected": 94.8,
+  "missing": 0,
+  "duplicate_rows": 0,
+  "constants": [
+    "EmployeeCount",
+    "Over18",
+    "StandardHours"
+  ]
+}

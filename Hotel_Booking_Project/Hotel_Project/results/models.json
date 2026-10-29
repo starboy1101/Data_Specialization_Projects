@@ -1,0 +1,70 @@
+{
+  "logistic": {
+    "N": 119206,
+    "Parameters": 25,
+    "Iterations": 9,
+    "Converged": true,
+    "MeanAbsoluteScore": 3.847809517018738e-15
+  },
+  "retrospective_logistic": {
+    "N": 119206,
+    "Parameters": 27,
+    "Iterations": 9,
+    "Converged": true,
+    "MeanAbsoluteScore": 1.8515091944017213e-15
+  },
+  "logistic_units": {
+    "lead_time": 30,
+    "TotalNights": 1,
+    "adults": 1,
+    "children": 1,
+    "babies": 1,
+    "is_repeated_guest": 1,
+    "PreviousCancelAny": 1
+  },
+  "adr": {
+    "N": 119205,
+    "Parameters": 33,
+    "R2": 0.4735017127564686,
+    "RMSE": 36.59348090432684,
+    "ConditionNumber": 664.2361368108956
+  },
+  "adr_capped": {
+    "N": 119205,
+    "Parameters": 33,
+    "R2": 0.527093594509404,
+    "RMSE": 32.17558753147877,
+    "ConditionNumber": 664.2361368108956
+  },
+  "adr_cap_99pct": 252.0,
+  "adr_unadjusted": {
+    "N": 119205,
+    "Parameters": 4,
+    "R2": 0.15212866755741483,
+    "RMSE": 46.437648242490006,
+    "ConditionNumber": 22.31052330571615
+  },
+  "prediction": {
+    "TrainN": 78195,
+    "TestN": 40620,
+    "TrainCanceledRate": 0.3639746786878956,
+    "TestCanceledRate": 0.38734613490891184,
+    "ROC_AUC": 0.7748101611557678,
+    "AveragePrecision": 0.7352022575213291,
+    "BrierScore": 0.17708633595879275,
+    "BaselineBrier": 0.23785533164592984,
+    "Accuracy": 0.7203101920236337,
+    "PrecisionAt05": 0.866677846721449,
+    "RecallAt05": 0.328460658446676
+  },
+  "references": {
+    "hotel": "Resort Hotel",
+    "market_segment": "Direct",
+    "customer_type": "Transient",
+    "deposit_type": "No Deposit",
+    "Season": "Winter",
+    "arrival_date_year": "2016"
+  },
+  "excluded_zero_guests_or_missing_children_or_undefined_market": 184,
+  "adr_additional_negative_excluded": 1
+}

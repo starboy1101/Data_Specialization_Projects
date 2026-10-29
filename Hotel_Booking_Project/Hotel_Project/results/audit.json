@@ -1,0 +1,21 @@
+{
+  "source_rows": 119390,
+  "source_columns": 32,
+  "identical_later_rows": 31994,
+  "distinct_rows": 87396,
+  "missing": {
+    "children": 4,
+    "country": 488,
+    "agent": 16340,
+    "company": 112593
+  },
+  "zero_guests": 180,
+  "zero_nights": 715,
+  "negative_adr": 1,
+  "adr_above_1000": 1,
+  "arrival_min": "2015-07-01",
+  "arrival_max": "2017-08-31",
+  "bad_arrival_dates": 0,
+  "status_consistent": true,
+  "source_sha256": "7c2ae42a7353905ea136e5c2287f17c92c5435826598bfbb8491c6f0c7b1fc06"
+}

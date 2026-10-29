@@ -1,0 +1,4 @@
+Feature,Outcome,N,Pearson,Spearman
+lead_time,is_canceled,119390,0.2931233557607179,0.31663458501185826
+total_of_special_requests,adr,119390,0.17218526436930923,0.19640484483719056
+booking_changes,total_of_special_requests,119390,0.05283343574930813,0.041908312767203484

@@ -1,0 +1,24 @@
+{
+  "bookings": 119390,
+  "canceled": 44224,
+  "cancellation_rate": 0.37041628277075134,
+  "mean_lead": 104.01141636652986,
+  "median_lead": 69.0,
+  "mean_requests": 0.5713627607002262,
+  "parking_bookings": 7416,
+  "parking_rate": 0.06211575508836586,
+  "mean_week_nights": 2.500301532791691,
+  "mean_weekend_nights": 0.9275986263506156,
+  "mean_total_nights": 3.4279001591423066,
+  "agent_bookings": 103050,
+  "agent_rate": 0.8631376162157635,
+  "mean_adr": 101.83112153446687,
+  "completed_value_proxy": 25996324.21,
+  "completed_proxy_nights": 255030,
+  "completed_proxy_weighted_adr": 101.93437717131319,
+  "status_counts": {
+    "Check-Out": 75166,
+    "Canceled": 43017,
+    "No-Show": 1207
+  }
+}

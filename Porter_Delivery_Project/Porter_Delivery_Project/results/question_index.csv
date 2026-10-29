@@ -1,0 +1,21 @@
+question,topic,status,result_files
+B01,Order volumes across markets,Calculated,B01_market_orders.csv
+B02,Average delivery time by restaurant category,Calculated,B02_category_delivery.csv
+B03,Peak hours for order placement,Calculated,B03_hourly_orders.csv
+B04,Weekdays with the highest order volumes,Calculated,B04_weekday_orders.csv
+B05,Correlation between total items and subtotal,Calculated,B05_items_subtotal_correlation.csv
+B06,Delivery-time distribution and outliers,Calculated,B06_delivery_quantiles.csv; B06_longest_deliveries.csv
+B07,Percentage delivered within 30 minutes,Calculated,B07_within_30_minutes.csv
+B08,Order volumes and busy partners,Calculated,B08_market_hour_observations.csv; B08_volume_busy_correlation.csv
+B09,Weekday and average delivery time,Calculated,B09_weekday_delivery.csv
+B10,Top five stores by longest average delivery time,Calculated,B10_all_store_delivery.csv; B10_top5_stores.csv; B10_top5_stores_le180_min30.csv
+M01,Efficiency of order protocols,Calculated,M01_protocol_delivery.csv
+M02,Average order value by market,Calculated,M02_market_order_value.csv
+M03,On-shift partners and delivery times during peak hours,Calculated,M03_peak_staffing_correlation.csv
+M04,Total items and distinct items in a delivery-time regression,Calculated,M04_item_complexity_regression.csv
+M05,Delivery-time fluctuations through the week,Calculated,M05_date_delivery.csv; M05_weekday_trends.csv
+M06,Item price range and order value,Calculated,M06_price_range_correlation.csv
+M07,Category and the likelihood of above-average order value,Calculated,M07_category_above_average.csv
+M08,Delivery-time variance within markets and categories,Calculated,M08_category_dispersion.csv; M08_market_dispersion.csv; M08_variance_tests.csv
+M09,Busy versus on-shift partner availability by market,Calculated,M09_between_market_correlation.csv; M09_market_utilization.csv
+M10,First-time versus repeat customer order patterns,Unavailable: customer identifier missing,M10_customer_comparison_status.csv

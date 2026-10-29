@@ -1,0 +1,6 @@
+PASS: market, hourly and weekday counts reconcile to source rows.
+PASS: valid and invalid durations reconcile to source rows.
+PASS: 30-minute numerator independently reproduced from timestamps.
+PASS: validated utilization ratios and price ranges satisfy bounds.
+PASS: category high-value counts reconcile to global threshold.
+PASS: all 20 question identifiers have an output or explicit unavailable status.

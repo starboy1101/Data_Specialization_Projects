@@ -1,0 +1,21 @@
+{
+  "age": "Counts reconcile",
+  "specialty": "Counts reconcile",
+  "emergency": "Counts reconcile",
+  "outpatient": "Counts reconcile",
+  "inpatient": "Counts reconcile",
+  "change": "Counts reconcile",
+  "labs": "Counts reconcile",
+  "race": "Counts reconcile",
+  "gender": "Counts reconcile",
+  "race_gender": "Counts reconcile",
+  "weight": "Counts reconcile",
+  "diagnosis_count": "Counts reconcile",
+  "weight_diagnosis": "Counts reconcile",
+  "source_join": "All 48,911 encounter IDs and patient IDs match",
+  "outcome_mapping": "Uploaded 1 equals either <30 or >30 for every matched encounter",
+  "medication_change_risk_difference": "Independent group means reproduce regression coefficient",
+  "model_confusion_matrix": "Reconciles to held-out test encounters",
+  "segmentation": "Patients and early events reconcile",
+  "questions": "25 unique question headings"
+}

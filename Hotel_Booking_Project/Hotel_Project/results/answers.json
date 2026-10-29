@@ -1,0 +1,227 @@
+[
+  {
+    "id": "B01",
+    "title": "Average booking lead time",
+    "text": "The average lead time is 104.01 days, while the median is 69 days. The higher mean shows that some bookings made far in advance pull the average upward. These are days from booking entry to scheduled arrival, including bookings that later canceled.",
+    "method": "Average lead_time across all 119,390 records.",
+    "table": "",
+    "chart": "",
+    "question": "What is the average lead time for bookings?"
+  },
+  {
+    "id": "B02",
+    "title": "Bookings by hotel type",
+    "text": "City Hotel has 79,330 records, or 66.45% of the sample. Resort Hotel has 40,060, or 33.55%. This compares two properties with different capacity and business mixes. It does not establish that city hotels are more popular across the industry.",
+    "method": "Count records by hotel.",
+    "table": "hotel_summary",
+    "chart": "hotel_bookings",
+    "question": "What is the distribution of bookings by hotel type?"
+  },
+  {
+    "id": "B03",
+    "title": "Canceled bookings",
+    "text": "The is_canceled flag identifies 44,224 records, giving a cancellation rate of 37.04%. The final status splits these into 43,017 Canceled and 1,207 No-Show records. The project uses the supplied flag consistently, so no-shows are included in cancellation totals.",
+    "method": "Sum is_canceled; divide by the record count.",
+    "table": "",
+    "chart": "",
+    "question": "How many bookings were canceled?"
+  },
+  {
+    "id": "B04",
+    "title": "Most common arrival month",
+    "text": "August has the most scheduled arrivals in the pooled sample, with 13,877 bookings. July and August each occur in three years; the other months occur in two. After dividing by the number of observed year-months, May leads with 5,895.5 records per observed May. Use the pooled answer for the assignment, and the coverage-adjusted view for planning.",
+    "method": "Count arrival_date_month; also divide counts by observed year-months.",
+    "table": "month_of_year",
+    "chart": "arrival_months",
+    "question": "What is the most common arrival month for bookings?"
+  },
+  {
+    "id": "B05",
+    "title": "Special requests per booking",
+    "text": "Bookings average 0.571 special requests. Most records have none: 70,318 of 119,390, or 58.90%. Requests can help estimate service workload, but their count does not measure whether the guest was satisfied or whether the request was fulfilled.",
+    "method": "Average total_of_special_requests.",
+    "table": "requests",
+    "chart": "",
+    "question": "What is the average number of special requests per booking?"
+  },
+  {
+    "id": "B06",
+    "title": "Country with the most bookings",
+    "text": "PRT, the code for Portugal, has the most records: 48,590, or 40.70% of all bookings. Country is unknown for 488 records and stays separate from known countries. This is a booking-level count, not a count of unique guests.",
+    "method": "Count country labels; retain missing country as Unknown.",
+    "table": "countries",
+    "chart": "",
+    "question": "Which country has the highest number of bookings?"
+  },
+  {
+    "id": "B07",
+    "title": "ADR by hotel type",
+    "text": "City Hotel has mean ADR of 105.30, compared with 94.95 for Resort Hotel. Their medians are 99.90 and 75.00. These booking-weighted means include canceled bookings and the source outliers. ADR is expressed in the source currency units; no exchange-rate conversion is made.",
+    "method": "Group by hotel and average adr.",
+    "table": "hotel_summary",
+    "chart": "",
+    "question": "What is the average daily rate (ADR) for each hotel type?"
+  },
+  {
+    "id": "B08",
+    "title": "Bookings requiring parking",
+    "text": "7,416 bookings require at least one parking space, representing 6.21% of all records. This percentage uses bookings as the denominator. It cannot be described as a percentage of individual guests, because one booking can contain several guests.",
+    "method": "Count required_car_parking_spaces > 0; divide by all records.",
+    "table": "",
+    "chart": "",
+    "question": "What percentage of guests required car parking spaces?"
+  },
+  {
+    "id": "B09",
+    "title": "Average week and weekend nights",
+    "text": "The mean is 2.500 week nights and 0.928 weekend nights per booking, giving 3.428 total nights. The main figures include booked nights for canceled records. They describe stay length, not occupancy rate. Actual occupancy needs occupied room-nights and available room-nights for the same dates.",
+    "method": "Average stays_in_week_nights and stays_in_weekend_nights; add them for total nights.",
+    "table": "",
+    "chart": "",
+    "question": "What is the average stay duration in week nights and weekend nights?"
+  },
+  {
+    "id": "B10",
+    "title": "Bookings through travel agents",
+    "text": "103,050 bookings have a travel-agent ID, or 86.31% of the sample. The other 16,340 have no applicable agent. The source paper explains that a NULL agent means the booking did not come through an agent, so these IDs are not filled with a typical agency number.",
+    "method": "Count non-missing agent IDs; keep IDs categorical.",
+    "table": "",
+    "chart": "",
+    "question": "How many bookings were made through travel agents?"
+  },
+  {
+    "id": "M01",
+    "title": "Cancellation rates by hotel",
+    "text": "City Hotel has a cancellation rate of 41.73%: 33,102 out of 79,330 records. Resort Hotel is at 27.76%: 11,122 out of 40,060. The difference is 13.96 percentage points. Channel mix, advance booking and deposit arrangements may contribute to this gap.",
+    "method": "Calculate sum(is_canceled) / record count within each hotel.",
+    "table": "hotel_summary",
+    "chart": "",
+    "question": "What is the cancellation rate for each hotel type?"
+  },
+  {
+    "id": "M02",
+    "title": "ADR by market segment",
+    "text": "Online TA has the highest mean ADR at 117.20, followed by Direct at 115.45. Complementary is lowest at 2.89, which fits a segment containing many free or heavily discounted stays. Undefined has only two records and is not useful for a broad comparison. ADR alone does not measure segment profitability because commissions and costs are absent.",
+    "method": "Group by market_segment; report count, mean and median ADR.",
+    "table": "market_segments",
+    "chart": "",
+    "question": "What is the average ADR per market segment?"
+  },
+  {
+    "id": "M03",
+    "title": "Lead time and cancellation",
+    "text": "Longer lead times are associated with more cancellations. The rate rises from 9.63% for bookings made 0 to 7 days ahead to 67.66% for those made at least 366 days ahead. Pearson correlation is 0.293 and Spearman is 0.317. The relationship can also reflect group bookings and deposit practices; it is not a causal effect of waiting longer.",
+    "method": "Correlate lead_time with is_canceled; compare explicit day bands.",
+    "table": "lead_bands",
+    "chart": "lead_cancellations",
+    "question": "What is the relationship between lead time and cancellation rate?"
+  },
+  {
+    "id": "M04",
+    "title": "Largest distribution channel",
+    "text": "TA/TO has 97,870 booking records, or 81.98% of the sample. Direct has 14,645 and Corporate has 6,677. A large channel count does not by itself establish effectiveness, because acquisition cost and net income are not supplied. TA/TO means travel agents and tour operators.",
+    "method": "Count records by distribution_channel.",
+    "table": "channels",
+    "chart": "",
+    "question": "Which distribution channel has the highest number of bookings?"
+  },
+  {
+    "id": "M05",
+    "title": "Previous cancellations by hotel",
+    "text": "Mean previous cancellations are 0.0797 for City Hotel and 0.1017 for Resort Hotel. These are historical counts recorded on each booking, rather than the current booking\u2019s outcome. Multiple bookings can carry the same guest history, and no guest ID is available for a unique-customer average.",
+    "method": "Average previous_cancellations by hotel.",
+    "table": "hotel_summary",
+    "chart": "",
+    "question": "What is the average number of previous cancellations by hotel type?"
+  },
+  {
+    "id": "M06",
+    "title": "ADR over the years",
+    "text": "Mean ADR rises from 87.18 in 2015 to 98.33 in 2016 and 114.64 in 2017. The years cover different months: July to December 2015, all of 2016, and January to August 2017. Restricting the comparison to July and August gives 102.55, 134.63 and 153.24 respectively. Both views rise, but composition changes prevent interpreting the difference as a pure price increase.",
+    "method": "Average ADR by arrival year; repeat for July and August, present in all years.",
+    "table": "year_adr",
+    "chart": "adr_monthly",
+    "question": "What is the trend of ADR over the years?"
+  },
+  {
+    "id": "M07",
+    "title": "Month with the largest lodging value",
+    "text": "August leads with an estimated completed-stay lodging value of 4,917,159.06 source currency units. Its average per observed August is 1,639,053.02 and also leads after the coverage adjustment. The assignment\u2019s sum-of-ADR calculation gives August 1,944,327.60, but adding daily rates is not a revenue calculation. The full table retains this requested arithmetic alongside the lodging-value estimate.",
+    "method": "For Check-Out records with positive nights and nonnegative ADR, sum adr \u00d7 total nights; allocate the whole stay to arrival month.",
+    "table": "revenue_month",
+    "chart": "revenue_proxy",
+    "question": "Which month has the highest revenue?"
+  },
+  {
+    "id": "M08",
+    "title": "Special requests and ADR",
+    "text": "Mean ADR is 94.96 for no requests, 108.46 for one request and 117.03 for two requests. Pearson correlation is 0.172 and Spearman is 0.196, indicating a weak positive association. The five-request group has only 40 records. Guest composition, room type and season can explain part of the difference, so the result does not justify charging for requests.",
+    "method": "Group by request count; correlate total_of_special_requests with adr.",
+    "table": "requests",
+    "chart": "",
+    "question": "What is the impact of special requests on ADR?"
+  },
+  {
+    "id": "M09",
+    "title": "Stay length for repeat and new guests",
+    "text": "Repeat-guest bookings average 1.926 nights, compared with 3.477 for records without the repeat flag. There are 3,810 repeat-guest records and 115,580 others. The flag identifies recorded booking history, not a verified first-ever customer relationship. These means include canceled reservations.",
+    "method": "Add week and weekend nights; average by is_repeated_guest.",
+    "table": "guest_repeat",
+    "chart": "",
+    "question": "What is the average stay duration for repeated guests versus new guests?"
+  },
+  {
+    "id": "M10",
+    "title": "Most frequently reserved room type",
+    "text": "Room type A is most common, with 85,994 bookings, or 72.03% of the sample. Type D follows with 19,201. The analysis uses reserved_room_type as requested, rather than the final assigned room. Codes are anonymized and should not be renamed as standard, deluxe or suite without a mapping.",
+    "method": "Count records by reserved_room_type.",
+    "table": "rooms",
+    "chart": "",
+    "question": "Which room type has the highest number of bookings?"
+  },
+  {
+    "id": "A01",
+    "title": "Factors associated with cancellation",
+    "text": "A logistic regression on 119,206 eligible records finds higher cancellation odds with longer lead time, any previous cancellation, City Hotel, Online TA and non-refundable deposits, after the specified controls. Repeat-guest records have lower odds. An extra 30 lead-time days has an odds ratio of 1.095, with a 95% interval of 1.089 to 1.101. Odds ratios compare odds, not probability-point changes. The full coefficient table includes robust uncertainty and adjusted p-values.",
+    "method": "Fit an unpenalized logistic model with HC1 robust standard errors; apply Benjamini-Hochberg adjustment across non-intercept terms.",
+    "table": "cancellation_logistic",
+    "chart": "",
+    "question": "What factors significantly impact the cancellation rate?"
+  },
+  {
+    "id": "A02",
+    "title": "Guest composition and ADR",
+    "text": "In the adjusted multiple regression, an additional adult is associated with 5.93 more ADR units, a child with 14.67, and a baby with 5.90. The respective 95% intervals are 3.85 to 8.02, 13.75 to 15.60, and 3.27 to 8.54. The model holds hotel, segment, reserved room, arrival month, year and stay length constant. These are conditional associations, not per-person surcharges.",
+    "method": "OLS with adults, children and babies plus controls; HC3 standard errors; compare an upper-99th-percentile capped outcome.",
+    "table": "adr_regression",
+    "chart": "",
+    "question": "How does the ADR vary with the number of adults, children, and babies?"
+  },
+  {
+    "id": "A03",
+    "title": "Booking changes and guest requests",
+    "text": "Booking changes and special requests have Pearson correlation of 0.0528 and Spearman correlation of 0.0419. Both are close to zero. The data therefore offers little evidence of a strong overall relationship between these counts. More importantly, no satisfaction score is present. The requested relationship can be measured, but the effect of booking flexibility on guest satisfaction cannot.",
+    "method": "Correlate booking_changes and total_of_special_requests; inspect counts by change frequency.",
+    "table": "changes",
+    "chart": "",
+    "question": "What is the impact of booking changes on guest satisfaction as indicated by special requests?"
+  },
+  {
+    "id": "A04",
+    "title": "Seasonal cancellation patterns",
+    "text": "Across all observed years, summer has the highest cancellation rate at 38.73% and winter the lowest at 33.08%. The complete year 2016 gives a different ranking: autumn is highest at 38.45%, followed by summer at 36.31%, spring at 34.67% and winter at 32.92%. This difference warns against assuming a stable seasonal rule from a partial multi-year sample. Seasonal terms are not significant at the adjusted 5% level in the baseline logistic model.",
+    "method": "Define Northern Hemisphere seasons; calculate canceled / bookings by season and month, with a separate complete-2016 view.",
+    "table": "season_2016",
+    "chart": "seasonal_cancellation",
+    "question": "What is the seasonal impact on booking cancellations?"
+  },
+  {
+    "id": "A05",
+    "title": "Lead time across market segments",
+    "text": "Groups book farthest ahead, with a median of 162 days and a middle-half range of 70 to 285 days. Offline TA/TO has a median of 109 days, Online TA 58, Direct 16 and Corporate 7. Aviation and Complementary each have a median of 3 days. Undefined has only two records. These distributions can help choose when to send confirmations and reminders for each segment.",
+    "method": "Group lead_time by market_segment; calculate median, quartiles and percentiles; draw a boxplot.",
+    "table": "lead_by_segment",
+    "chart": "lead_segment_boxplot",
+    "question": "How does the booking lead time distribution vary between different market segments?"
+  }
+]

@@ -1,0 +1,142 @@
+[
+  [
+    "B01",
+    "What is the overall attrition rate?",
+    "237 of 1,470 employees are marked Yes for attrition: 16.12%. The remaining 1,233 are marked No. This is the proportion in the dataset, not an annual turnover rate. The observation period and average active headcount are not provided.",
+    null,
+    "COUNTIF(Attrition,\"Yes\") / COUNTA(EmployeeNumber)"
+  ],
+  [
+    "B02",
+    "Which department has the highest attrition rate?",
+    "Sales has the highest proportion, 20.63%, followed by Human Resources at 19.05% and Research & Development at 13.84%. R&D has the largest number of leavers because it is much larger. Use proportions to compare departments and counts to plan workload.",
+    "Department",
+    "COUNTIFS(Department,group,Attrition,\"Yes\") / COUNTIF(Department,group)"
+  ],
+  [
+    "B03",
+    "What is the average age of employees who left?",
+    "The average age of the 237 leavers is 33.61 years. This does not show that age caused their departures. Career support should be based on employee needs and role, rather than age alone.",
+    null,
+    "AVERAGEIF(Attrition,\"Yes\",Age)"
+  ],
+  [
+    "B04",
+    "How does job satisfaction vary by role?",
+    "Average scores range from 2.558 for Human Resources to 2.786 for Healthcare Representative. The gap is small on a 1–4 scale. These averages summarize ordinal responses; they should be read alongside counts and employee feedback.",
+    "JobRole",
+    "AVERAGEIF(JobRole,role,JobSatisfaction)"
+  ],
+  [
+    "B05",
+    "Do attrition rates differ significantly by gender?",
+    "Female employees have a 14.80% attrition proportion and male employees 17.01%, a difference of 2.21 percentage points. Pearson’s chi-square test gives χ² = 1.2752, df = 1 and p = 0.2588. At a 5% threshold, the sample does not provide sufficient evidence of a gender difference. This is not proof that the rates are identical. All expected counts exceed 5; the minimum is 94.8. The test uses no continuity correction. A test of categorical counts is appropriate here, rather than a t-test of category labels.",
+    "Gender",
+    "CHITEST(observed_2x2,expected_2x2)"
+  ],
+  [
+    "B06",
+    "What is the average monthly income of leavers?",
+    "Leavers have an average MonthlyIncome of 4,787.09 in the dataset’s original units. Currency is not confirmed, so this value is not labelled as rupees or dollars. Role, level and experience can explain part of any pay difference; this average alone cannot establish a pay problem.",
+    null,
+    "AVERAGEIF(Attrition,\"Yes\",MonthlyIncome)"
+  ],
+  [
+    "B07",
+    "How is distance from home related to attrition?",
+    "The point-biserial correlation is 0.0779, calculated as Pearson correlation with Yes = 1 and No = 0. The positive association is weak. Distance bands provide a more readable view than a scatter plot with two outcome values. Commute support is worth discussing with staff, but a benefit should be tested before claiming it reduces departures.",
+    "DistanceBand",
+    "CORREL(DistanceFromHome,AttritionFlag)"
+  ],
+  [
+    "B08",
+    "How are performance ratings distributed?",
+    "There are 1,244 employees rated 3 (84.63%) and 226 rated 4 (15.37%). No employees have ratings 1 or 2. The narrow range limits what performance correlations can tell us.",
+    "PerformanceRating",
+    "COUNTIF(PerformanceRating,rating)"
+  ],
+  [
+    "B09",
+    "How many employees work overtime?",
+    "416 employees, or 28.30%, have OverTime = Yes. The field records a yes/no status; it does not tell us how often employees work overtime or how many extra hours they work.",
+    "OverTime",
+    "COUNTIF(OverTime,\"Yes\")"
+  ],
+  [
+    "B10",
+    "What is average tenure?",
+    "Employees have spent an average of 7.01 years at the company. The calculation includes both leavers and employees who remain. It is a snapshot summary, not a survival estimate.",
+    null,
+    "AVERAGE(YearsAtCompany)"
+  ],
+  [
+    "M01",
+    "Which three factors have the strongest attrition correlations?",
+    "Within the 24 eligible numeric, ordinal and binary factors, the largest absolute Pearson correlations are OverTimeFlag (0.2461), TotalWorkingYears (−0.1711) and JobLevel (−0.1691). Overtime is associated with more attrition; experience and seniority with less. These are unadjusted associations, not three proven causes. EmployeeNumber and constant columns are excluded. Nominal categories such as Department and JobRole are compared separately and are not assigned arbitrary numeric codes.",
+    "TOP",
+    "CORREL(factor,AttritionFlag), then sort ABS(r) descending"
+  ],
+  [
+    "M02",
+    "How does attrition vary by job involvement?",
+    "Attrition falls from 33.73% at involvement level 1 to 9.03% at level 4. This is a clear descriptive pattern. Ask employees with low involvement what is missing from their work and test practical changes such as clearer responsibilities and manager check-ins.",
+    "JobInvolvement",
+    "COUNTIFS(JobInvolvement,level,Attrition,\"Yes\") / COUNTIF(JobInvolvement,level)"
+  ],
+  [
+    "M03",
+    "Is age related to job satisfaction?",
+    "Pearson r = −0.0049 and Spearman rho = −0.0052. Both are close to zero. There is no meaningful linear or monotonic relationship in this dataset. The results do not support designing satisfaction programmes around age.",
+    null,
+    "CORREL(Age,JobSatisfaction)"
+  ],
+  [
+    "M04",
+    "How does attrition vary by marital status?",
+    "Single employees have the highest attrition proportion, 25.53%, compared with 12.48% for married employees and 10.09% for divorced employees. Differences in experience, role and benefits may be involved. This comparison should not be used to make employment decisions based on marital status. Offer support according to stated needs.",
+    "MaritalStatus",
+    "COUNTIFS(MaritalStatus,status,Attrition,\"Yes\") / COUNTIF(MaritalStatus,status)"
+  ],
+  [
+    "M05",
+    "How is training associated with attrition?",
+    "Employees with no training sessions have 27.78% attrition; those with six sessions have 9.23%. However, four sessions have 21.14%, above the rates for two and three sessions. The relationship is not steadily decreasing. These groups may differ in role or tenure, and some are small. Evaluate the relevance of training, not just the number of sessions.",
+    "TrainingTimesLastYear",
+    "COUNTIFS(TrainingTimesLastYear,sessions,Attrition,\"Yes\") / COUNTIF(TrainingTimesLastYear,sessions)"
+  ],
+  [
+    "M06",
+    "Is work-life balance related to performance?",
+    "Pearson r = 0.0026 and Spearman rho = 0.0068. There is almost no association with the recorded performance ratings. This does not mean work-life balance is unimportant: only ratings 3 and 4 occur, and the analysis does not measure wellbeing or productivity directly.",
+    "WorkLifeBalance",
+    "CORREL(WorkLifeBalance,PerformanceRating)"
+  ],
+  [
+    "M07",
+    "How does attrition vary by stock option level?",
+    "Level 0 has 24.41% attrition, compared with 9.40% at level 1 and 7.59% at level 2. Level 3 rises to 17.65%. The pattern does not show that each additional level reduces attrition. Eligibility, seniority and other differences may explain the comparison.",
+    "StockOptionLevel",
+    "COUNTIFS(StockOptionLevel,level,Attrition,\"Yes\") / COUNTIF(StockOptionLevel,level)"
+  ],
+  [
+    "M08",
+    "Is tenure related to job satisfaction?",
+    "Pearson r = −0.0038 and Spearman rho = 0.0123. Both are close to zero. Longer service is not associated with consistently higher or lower satisfaction in this sample.",
+    null,
+    "CORREL(YearsAtCompany,JobSatisfaction)"
+  ],
+  [
+    "M09",
+    "How does satisfaction vary with business travel?",
+    "Average satisfaction is 2.793 for non-travellers, 2.791 for frequent travellers and 2.703 for rare travellers. The largest gap is about 0.091 points on a 1–4 scale. Travel frequency does not show a simple worsening pattern, and these differences alone do not justify a broad travel-policy change.",
+    "BusinessTravel",
+    "AVERAGEIF(BusinessTravel,frequency,JobSatisfaction)"
+  ],
+  [
+    "M10",
+    "Are years since promotion related to performance?",
+    "Pearson r = 0.0179 and Spearman rho = −0.0066. Neither suggests a useful relationship. The data cannot establish whether changing promotion timing would improve performance. Review promotion fairness and career paths using role expectations and individual feedback.",
+    null,
+    "CORREL(YearsSinceLastPromotion,PerformanceRating)"
+  ]
+]

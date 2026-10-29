@@ -1,0 +1,3 @@
+grouping,sample,groups,n,brown_forsythe_statistic,p_value
+market,"At most 180 minutes, known groups with at least 30 orders",6,196296,361.9150818808984,0.0
+category,"At most 180 minutes, known groups with at least 30 orders",63,192381,10.528792053134884,3.0044664853731675e-99
